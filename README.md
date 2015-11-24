@@ -10,10 +10,10 @@
 
 <code>
 ./configure --with-features=huge --enable-multibyte  --enable-rubyinterp=yes --enable-pythoninterp=yes   --enable-perlinterp=yes --enable-luainterp=yes --enable-cscope --prefix=yourprefix
-
-sh install.sh
-
-**进入Vim后，按F6，会打印需要经常会用到的命令**
 </code>
 
+##如果只下载了.vimrc, 并且在有网络的情况下,可使用install.sh脚本快速安装
 
+<code>sh install.sh</code> 
+
+**进入Vim后，按F6，会打印需要经常会用到的插件命令**
