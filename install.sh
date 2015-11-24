@@ -7,6 +7,12 @@
 #########################################################################
 yum install vim 
 
+
+#安装依赖项
+yum instal ctag
+pip install pyflakes
+
+
 cp .vimrc ~/
 
 git clone https://github.com/gmarik/vundle.git  ~/.vim/bundle/vundle
