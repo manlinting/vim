@@ -16,7 +16,7 @@
 <code>git clone https://github.com/manlinting/vim ~/</code>
 
 ##安装方式2： 只下载.vimrc
-在有网络的情况下,可使用install.sh脚本快速安装
+*   在有网络的情况下,可使用install.sh脚本快速安装
 
 
 **进入Vim后，按F6，会打印需要经常会用到的插件命令**
