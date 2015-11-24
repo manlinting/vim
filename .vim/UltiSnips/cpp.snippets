@@ -1,0 +1,16 @@
+extends c
+
+##
+## Preprocessor
+# MMERR
+snippet MMERR
+MMERR("ERR:%s ${1:T}", __func__, );
+endsnippet
+
+snippet MMDEBUG
+MMDEBUG("DBG:%s ${1:T}", __func__, );
+endsnippet
+
+snippet MMINFO 
+MMINFO("INFO:%s ${1:T}", __func__, );
+endsnippet
