@@ -12,7 +12,7 @@
 ./configure --with-features=huge --enable-multibyte  --enable-rubyinterp=yes --enable-pythoninterp=yes   --enable-perlinterp=yes --enable-luainterp=yes --enable-cscope --prefix=yourprefix
 </code>
 
-##如果只下载了.vimrc, 并且在有网络的情况下,可使用install.sh脚本快速安装
+##也可以只下载了.vimrc, 在有网络的情况下,可使用install.sh脚本快速安装
 
 <code>sh install.sh</code> 
 
