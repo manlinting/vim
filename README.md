@@ -52,7 +52,7 @@ git clone https://github.com/manlinting/vim ~/
 
 ---
 
-<img src="http://git.weixin.qq.com/vim-master/gif/total.gif" width = "800" height = "400" />
+<img src="https://raw.githubusercontent.com/manlinting/vim/master/gif/cpp.gif" width = "800" height = "400" />
 
 -   F6打印所有帮助命令  快速修改.vimrc,保存时生效
 
