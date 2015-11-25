@@ -15,6 +15,7 @@ function! PrintHelp()
     echohl WarningMsg | echo ",t TaskList" | echohl None
     echohl WarningMsg | echo ",e Open .vimrc" | echohl None
     echohl WarningMsg | echo "UltiSnips: box|bbox MMERR|MMDEBUG|MMINFO cl|inc"| echohl None
+    echohl WarningMsg | echo "FencView: FencAutoDectect|FencView"| echohl None
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,15 +98,15 @@ Bundle 'a.vim'
 Bundle "TaskList.vim"
 Bundle "vim-easy-align"
 Bundle "cppSyntaxCheck"
+Bundle "FencView.vim"
 
 "if no YouCompleteMe
-"Bundle 'neocomplcache'
-"Bundle 'OmniCppComplete'
+Bundle 'neocomplcache'
+Bundle 'OmniCppComplete'
 
 """"""""""""""
 "  git repo  "
 """"""""""""""
-
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -114,7 +115,6 @@ Bundle 'bling/vim-airline'
 Bundle 'SirVer/ultisnips' 
 Bundle 'honza/vim-snippets'
 Bundle 'kevinw/pyflakes-vim'
-Bundle 'fencview.vim'
 
 Bundle "Shougo/vimproc.vim"
 Bundle "Shougo/vimshell.vim"
@@ -129,8 +129,6 @@ Bundle "FuDesign2008/randomColor.vim"
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'flazz/vim-colorschemes'
 Bundle "tpope/vim-pathogen"
-
-
 """""""""""""""
 "  full path  "
 """""""""""""""
@@ -174,7 +172,7 @@ set ambiwidth=double
 "                                  fencview                                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fencview_autodetect = 1
-
+"遇到乱码时，可用:FencAutoDectect自动检测,并追加到fileencodings中
 
 
 
@@ -193,11 +191,8 @@ set shiftwidth=4	"(自动) 缩进每一步使用的空白数目.用于 "cindent"
 set softtabstop=4
 set tabstop=4
 set smarttab
-
 "backspace to delete
 set backspace=indent,eol,start
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             indent-guides 对齐线                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -205,6 +200,8 @@ set backspace=indent,eol,start
 let g:indent_guides_guide_size=1
 ""快捷键i开/关缩进可视化
 :nmap<silent> <Leader>i <Plug>IndentGuidesToggle
+
+
 
 
 
@@ -218,6 +215,10 @@ let NERDTreeWinPos='left'
 "关闭vim时，如果打开的文件除了NERDTree没有其他文件时，它自动关闭，减少多次按:q!。
 map <F12> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+
+
+
 
 
 
@@ -273,7 +274,7 @@ nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+"highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
 " " 选中项
 highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 " " 引入 C++ 标准库tags
@@ -417,13 +418,15 @@ let g:tagbar_width = 30                               "设置宽度
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               ctags setting                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"TODO Define Your Tag Position
 "注意=后不可有空格"
-set tags+=/home/lincolnlin/.vim/tag/mmbiz
-set tags+=/home/lincolnlin/.vim/tag/stl
+set tags+=~/.vim/tag/mmbiz
+set tags+=~/.vim/tag/stl
 set tags+=~/QQMail/mm3rd/boost/tags
 map <F9> :call ReBuildCtags()<CR>
+"TODO Define Your Tags Generate Function"
 function! ReBuildCtags()
-    exec "!find /home/lincolnlin/QQMail/mmbiz/ -name *.h -o -name *.c -o -name *.cpp > /home/lincolnlin/.vim/src.files && ctags -R --c++-kinds=+px --fields=+iaS --extra=+q -L /home/lincolnlin/.vim/src.files  -f /home/lincolnlin/.vim/tag/mmbiz"
+    exec "!find ~/QQMail/mmbiz/ -name *.h -o -name *.c -o -name *.cpp > ~/.vim/src.files && ctags -R --c++-kinds=+px --fields=+iaS --extra=+q -L ~/.vim/src.files  -f ~/.vim/tag/mmbiz"
     echohl WarningMsg | echo "ReBuild Ctags Done!" | echohl None
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
