@@ -52,24 +52,24 @@ git clone https://github.com/manlinting/vim ~/
 
 ---
 
-<img src="https://raw.githubusercontent.com/manlinting/vim/master/gif/total.gif" width = "800" height = "400" />
+![](https://raw.githubusercontent.com/manlinting/vim/master/gif/total.gif)
 
 -   F6打印所有帮助命令  快速修改.vimrc,保存时生效
 
 ---
 
-<img src="https://raw.githubusercontent.com/manlinting/vim/master/gif/f6.gif" width = "800" height = "400" />
+![](https://raw.githubusercontent.com/manlinting/vim/master/gif/f6.gif)
 
 -   补全
 
 ---
 
-<img src="https://raw.githubusercontent.com/manlinting/vim/master/gif/cpp.gif" width = "800" height = "400" />
+![](https://raw.githubusercontent.com/manlinting/vim/master/gif/cpp.gif)
 
 -   Shell增强
 
 ---
 
-<img src="https://raw.githubusercontent.com/manlinting/vim/master/gif/shell.gif" width = "800" height = "400" />
+![](https://raw.githubusercontent.com/manlinting/vim/master/gif/shell.gif)
 
 
