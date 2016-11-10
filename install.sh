@@ -5,7 +5,7 @@
 # File Name: init_vim.sh
 # Description: 
 #########################################################################
-yum install vim 
+yum install vim -y
 
 
 #安装依赖项
