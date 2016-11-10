@@ -522,7 +522,7 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 let g:rehash256 = 1
-let g:favorite_color_schemes = ['molokai', 'tir_black', 'lucius',]
+let g:favorite_color_schemes = [ 'tir_black' ]
 "0 - Do not use
 "1 - Use, default value
 "2 - Use, but only when vim is running in the GUI
