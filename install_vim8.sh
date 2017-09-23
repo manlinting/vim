@@ -15,4 +15,6 @@ make
 
 make install
 
-alias vim='/usr/local/vim8/bin/vim'
+echo "alias vim='/usr/local/vim8/bin/vim'" >> ~/.bashrc
+
+source ~/.bashrc
