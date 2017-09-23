@@ -14,7 +14,6 @@ function! PrintHelp()
     echohl WarningMsg | echo "<C-P> CtrlP" | echohl None
     echohl WarningMsg | echo ",t TaskList" | echohl None
     echohl WarningMsg | echo ",e Open .vimrc" | echohl None
-    echohl WarningMsg | echo "UltiSnips: box|bbox MMERR|MMDEBUG|MMINFO cl|inc"| echohl None
     echohl WarningMsg | echo "FencView: FencAutoDectect|FencView"| echohl None
 endfunction
 
@@ -101,8 +100,8 @@ Bundle "cppSyntaxCheck"
 Bundle "FencView.vim"
 
 "if no YouCompleteMe
-Bundle 'neocomplcache'
-Bundle 'OmniCppComplete'
+"Bundle 'neocomplcache'
+"Bundle 'OmniCppComplete'
 
 """"""""""""""
 "  git repo  "
@@ -112,12 +111,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
-Bundle 'SirVer/ultisnips' 
-Bundle 'honza/vim-snippets'
 Bundle 'kevinw/pyflakes-vim'
 
-Bundle "Shougo/vimproc.vim"
-Bundle "Shougo/vimshell.vim"
+"Bundle "Shougo/vimproc.vim"
+"Bundle "Shougo/vimshell.vim"
 Bundle "rainbow_parentheses.vim"
 Bundle "Yggdroot/indentLine"
 Bundle "altercation/vim-colors-solarized"
@@ -125,8 +122,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "mbbill/undotree"
 Bundle "kien/ctrlp.vim"
 Bundle "Chiel92/vim-autoformat"
-Bundle "FuDesign2008/randomColor.vim"
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'flazz/vim-colorschemes'
 Bundle "tpope/vim-pathogen"
 """""""""""""""
@@ -264,12 +260,7 @@ let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'nerdtree' : 1,
       \}
-"youcompleteme  默认tab  s-tab 和 ultisnips 冲突
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-" 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT + ;
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_seed_identifiers_with_syntax = 1
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -278,65 +269,11 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " " 选中项
 highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 " " 引入 C++ 标准库tags
-"set tags+=/data/misc/software/misc./vim/stdcpp.tags
 " " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
 inoremap <leader>; <C-x><C-o>
 " " 补全内容不以分割子窗口形式出现，只显示补全列表
 set completeopt-=preview
 " " 从第一个键入字符就开始罗列匹配项
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  UltiSnips                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsListSnippets = '<C-Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-let g:UltiSnipsListSnippets="<c-e>"
-" 参考https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-62941322
-" 解决ultisnips和ycm tab冲突，如果不使用下面的办法解决可以参考
-" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-63205056的配置
-" begin
-" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-" let g:UltiSnipsExpandTrigger="<Tab>"
-" let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
-" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-" end
-" UltiSnips completion function that tries to expand a snippet. If there's no
-" snippet for expanding, it checks for completion window and if it's
-" shown, selects first element. If there's no completion window it tries to
-" jump to next placeholder. If there's no placeholder it just returns TAB key 
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-
-" Expand snippet or return
-let g:ulti_expand_res = 1
-function! Ulti_ExpandOrEnter()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res
-        return ''
-    else
-        return "\<return>"
-endfunction
-
-" Set <space> as primary trigger
-inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
-
-
 
 
 
@@ -522,12 +459,10 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 let g:rehash256 = 1
-let g:favorite_color_schemes = [ 'tir_black' ]
 "0 - Do not use
 "1 - Use, default value
 "2 - Use, but only when vim is running in the GUI
 "3 - Use, but only when vim is NOT runing in the GUI
-let g:random_color_start = 3
 
 
 
