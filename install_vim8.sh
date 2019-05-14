@@ -5,7 +5,7 @@
 # File Name: install_vim8.sh
 # Description: 
 #########################################################################
-
+yum install ncurses-devel python-devel -y
 
 git clone https://github.com/vim/vim.git --depth=1 && cd vim/
 
